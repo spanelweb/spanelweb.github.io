@@ -277,10 +277,14 @@
             border-radius: 18px;
             display: inline-block;
             margin-top: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--card-border);
+            /* Perbaikan: Membuat bayangan lebih lembut namun nyata di background putih */
+            box-shadow: 0 20px 40px rgba(234, 88, 12, 0.12); 
+            border: 1px solid rgba(234, 88, 12, 0.15);
+            
+            /* Memastikan akselerasi hardware GPU aktif agar rendering super smooth */
             transform-style: preserve-3d;
             transform: perspective(1000px);
+            will-change: transform; 
         }
 
         .qr-card canvas {
@@ -436,13 +440,16 @@
             correctLevel : QRCode.CorrectLevel.H
         });
 
-        // 3. Efek 3D Tilt Pada Kartu QR Code Murni
+        // 3. Efek 3D Tilt Pada Kartu QR Code (Dioptimalkan untuk Kelancaran Maksimal)
         VanillaTilt.init(document.querySelector("#tilt-qr"), {
-            max: 20,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.2,
+            max: 28,           // Menaikkan sudut rotasi maksimum agar efek kemiringan terasa mantap
+            speed: 800,        // Menaikkan transisi kecepatan respons pergerakan (lebih responsif mengikuti kursor)
+            glare: true,       // Mengaktifkan efek pantulan cahaya murni
+            "max-glare": 0.4,  // Menaikkan intensitas kilauan cahaya agar terlihat mewah di background putih
+            scale: 1.04,       // Memberikan efek sedikit membesar secara halus saat kursor menyentuh kartu
+            easing: "cubic-bezier(.03,.98,.52,.99)", // Efek perlambatan pergerakan murni yang sangat estetik
         });
+
     </script>
 </body>
 </html>
