@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="id-ID">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>sPanel - Platform Pembelajaran Web Statik Serverless</title>
+    <meta name="description" content="sPanel merupakan sebuah platform web statik yang dirancang khusus untuk lingkungan pembelajaran pembuatan dan publikasi website dengan workflow menyerupai cPanel versi klone murni bertenaga Firebase.">
+    <meta name="keywords" content="sPanel, cPanel clone, web statik, pembelajaran website, firebase serverless, belajar coding, hosting gratis, github pages, sPanel official">
+    <meta name="author" content="sPanel Team">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://spanelweb.github.io/">
+    <meta property="og:title" content="sPanel - Platform Pembelajaran Web Statik Serverless">
+    <meta property="og:description" content="Workflow menyerupai cPanel bertenaga penuh secara serverless di atas arsitektur Firebase.">
+    <meta property="og:image" content="https://spanelweb.github.io/profile.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://spanelweb.github.io/">
+    <meta name="twitter:title" content="sPanel - Platform Pembelajaran Web Statik Serverless">
+    <meta name="twitter:description" content="Workflow menyerupai cPanel bertenaga penuh secara serverless di atas arsitektur Firebase.">
+    <meta name="twitter:image" content="https://spanelweb.github.io/profile.jpg">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #ffffff; /* Background Putih Murni */
+            --card-bg: #f8fafc;  /* Abu-abu super terang untuk kontras card */
+            --accent-color: #ea580c; /* Orange Dark Utama (cPanel Style vibe) */
+            --accent-glow: rgba(234, 88, 12, 0.3);
+            --text-main: #0f172a; /* Teks Utama Gelap Gelap */
+            --text-muted: #475569; /* Teks Keterangan */
+            --gradient: linear-gradient(135deg, #ea580c 0%, #ff7e47 100%);
+            --card-border: rgba(15, 23, 42, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* --- ANIMASI TITIK SINAR (BACKGROUND PARTICLES) --- */
+        .particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Supaya link di bawahnya tetap bisa diklik */
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(234,88,12,0.7) 0%, rgba(234,88,12,0) 70%);
+            border-radius: 50%;
+            animation: floatUp 10s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.3);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1; /* Di atas partikel background */
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Pure CSS Entry Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 10px 25px var(--accent-glow);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.5);
+        }
+
+        h1 {
+            font-size: 2.7rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        /* Sections Style */
+        section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        section:nth-of-type(1) { animation-delay: 0.15s; }
+        section:nth-of-type(2) { animation-delay: 0.25s; }
+        section:nth-of-type(3) { animation-delay: 0.35s; }
+        section:nth-of-type(4) { animation-delay: 0.45s; }
+
+        section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.08);
+            border-color: rgba(234, 88, 12, 0.2);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* Icons List Grid */
+        .icon-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .icon-item i {
+            font-size: 3.2rem;
+        }
+
+        .icon-item span {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* Brand Colors Opsi Ringan Kontras */
+        .fa-html5 { color: #e34c26; }
+        .fa-css3-alt { color: #264de4; }
+        .fa-square-js { color: #f7df1e; background-color: #000; -webkit-background-clip: text; }
+        .fa-fire { color: #ffa611; } 
+
+        /* Social Media Icons */
+        .social-grid a {
+            text-decoration: none;
+            color: var(--text-main);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .fa-facebook { color: #1877f2; }
+        .fa-instagram { color: #e1306c; }
+        .fa-tiktok { color: #000000; }
+        .fa-youtube { color: #ff0000; }
+
+        .social-grid .icon-item span {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Donation QR Section */
+        .donation-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .qr-card {
+            background: #ffffff;
+            padding: 18px;
+            border-radius: 18px;
+            display: inline-block;
+            margin-top: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--card-border);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+
+        .qr-card canvas {
+            display: block;
+        }
+
+        .donation-text {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 35px 0 10px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+            margin-top: 50px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        footer:hover {
+            opacity: 1;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .description { font-size: 1rem; }
+            .icon-grid { gap: 25px; }
+            .icon-item i { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="particle-container" id="particle-wrapper"></div>
+
+    <div class="container">
+        
+        <header>
+            <div class="profile-img-container">
+                <img src="profile.jpg" alt="sPanel Logo / Profile" class="profile-img" onerror="this.src='https://picsum.photos/150'">
+            </div>
+            <h1>sPanel</h1>
+            <p class="description">
+                sPanel merupakan sebuah platform web statik yang dirancang khusus untuk lingkungan pembelajaran pembuatan dan publikasi website. Memiliki workflow yang menyerupai cPanel versi klone murni namun ditenagai penuh secara serverless di atas arsitektur Firebase.
+            </p>
+        </header>
+
+        <section>
+            <h2>Bahasa Pemrograman</h2>
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <i class="fa-brands fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-brands fa-square-js"></i>
+                    <span>JavaScript</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ekstensi</h2>
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <i class="fa-solid fa-fire"></i>
+                    <span>Firebase</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Media Sosial</h2>
+            <div class="icon-grid social-grid">
+                <a href="https://spanel.official/facebook" target="_blank" class="icon-item" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span>@spanel.official</span>
+                </a>
+                <a href="https://spanel.official/instagram" target="_blank" class="icon-item" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>@spanel.official</span>
+                </a>
+                <a href="https://spanel.official/tiktok" target="_blank" class="icon-item" aria-label="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span>@spanel.official</span>
+                </a>
+                <a href="https://spanel.official/youtube" target="_blank" class="icon-item" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span>@spanel.official</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Donasi</h2>
+            <div class="donation-container">
+                <p class="donation-text">Dukung pengembangan sPanel melalui Scan QR Code DANA di bawah ini:</p>
+                <div class="qr-card" id="tilt-qr">
+                    <div id="qrcode"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 <a href="https://spanel-web.github.io">sPanel Official</a>. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    
+    <script>
+        // 1. Otomatis Membuat 30+ Titik Sinar Bergerak Secara Acak (Murni JS & CSS)
+        const particleWrapper = document.getElementById('particle-wrapper');
+        const particleCount = 35; // Jumlah bintik sinar di layar
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Atur properti acak posisi, ukuran, dan delay animasi
+            const size = Math.random() * 12 + 4; // Ukuran 4px sampai 16px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 8}s`;
+            particle.style.animationDuration = `${Math.random() * 6 + 6}s`; // Kecepatan melayang acak (6s - 12s)
+            
+            particleWrapper.appendChild(particle);
+        }
+
+        // 2. Generator QR Code Otomatis Berdasarkan Link Dana
+        const danaLink = "https://link.dana.id/minta?full_url=https://qr.dana.id/v1/281012012024061008694840";
+        new QRCode(document.getElementById("qrcode"), {
+            text: danaLink,
+            width: 180,
+            height: 180,
+            colorDark : "#0f172a",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        // 3. Efek 3D Tilt Pada Kartu QR Code Murni
+        VanillaTilt.init(document.querySelector("#tilt-qr"), {
+            max: 20,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+        });
+    </script>
+</body>
+</html>
