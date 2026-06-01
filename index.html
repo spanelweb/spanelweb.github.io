@@ -395,7 +395,20 @@
             <div class="donation-container">
                 <p class="donation-text">Dukung pengembangan sPanel ID melalui Scan QR Code DANA di bawah ini:</p>
                 <div class="qr-card" id="tilt-qr">
-                    <div id="qrcode"></div>
+                    <div id="qrcode" style="position: relative; display: inline-block;">
+                        <img src="profile.jpg" alt="Logo" style="
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            border: 3px solid #ffffff;
+                            background-color: #ffffff;
+                            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                        " onerror="this.src='https://picsum.photos/40'">
+                    </div>
                 </div>
             </div>
         </section>
@@ -437,7 +450,7 @@
             height: 180,
             colorDark : "#0f172a",
             colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
+            correctLevel : QRCode.CorrectLevel.H // Wajib H agar QR tetap bisa discand walaupun ditimpa logo
         });
 
         // 3. Efek 3D Tilt Pada Kartu QR Code (Dioptimalkan untuk Kelancaran Maksimal)
