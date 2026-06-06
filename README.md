@@ -2,7 +2,7 @@
 sPanel ID merupakan platform inovatif berbasis web statis yang dirancang khusus sebagai lingkungan pembelajaran pembuatan dan publikasi website secara modern, praktis, dan ditenagai penuh oleh arsitektur serverless Firebase.
 
 Fitur:
-1. File Manager : (Editor) Membantu menulis kode dan simpan untuk deploy.
+1. File Manager : (Editor) Membantu menulis kode dan simpan.
 2. Penggunaan Disk : Melihat penyimpanan disk/bandwith.
 3. Cadangan : Simpan file kamu ke komputer/handphone (Backup).
 4. Firebase Table : Url api publik dapat di fetch dimanapun (read: true).
