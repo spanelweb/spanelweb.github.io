@@ -9,6 +9,11 @@ Fitur:
 5. Simpan JSON : Simpan FTable format JSON ke komputer/handphone (backup).
 6. Aktivitas : Informasi seputar keamanan untuk website yang di publik.
 
+Update 12/06/2026 :
+- Perbaikan UI/UX
+- RSS, contoh: https://spnlid.web.app/example?rss
+- Reset Kata Sandi (Sesudah Login/Pada Dasbor)
+
 Update 06/06/2026 :
 - PWA Aktif (Chrome Browser)
 
