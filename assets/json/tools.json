@@ -13,5 +13,10 @@
     "name": "Smart TV",
     "url": "https://spanelweb.github.io/smarttv",
     "img": "https://spanelweb.github.io/smarttv/smarttv.webp"
+  },
+  {
+    "name": "HTML Minifier",
+    "url": "https://spanelweb.github.io/minify",
+    "img": "https://spanelweb.github.io/minify/minify.webp"
   }
 ]
