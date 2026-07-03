@@ -9,6 +9,11 @@ Fitur:
 5. Simpan JSON : Simpan FTable format JSON ke komputer/handphone (backup).
 6. Aktivitas : Informasi seputar keamanan untuk website yang di publik.
 
+Update 01/07/2026 :
+- Perbaikan Sistem
+- Unggah file html/json
+- Optimalisasi Database FTable (Firebase Table)
+
 Update 12/06/2026 :
 - Perbaikan UI/UX
 - RSS, contoh: https://spnlid.web.app/example?rss
