@@ -28,5 +28,15 @@
     "name": "INDICARS",
     "url": "https://spanelweb.github.io/indicars",
     "img": "https://spanelweb.github.io/indicars/indicars.png"
+  },
+  {
+    "name": "SoundText",
+    "url": "https://spanelweb.github.io/soundtext",
+    "img": "https://spanelweb.github.io/soundtext/soundtext.png"
+  },
+  {
+    "name": "ScraPict",
+    "url": "https://spanelweb.github.io/scrapict",
+    "img": "https://spanelweb.github.io/scrapict/scrapict.png"
   }
 ]
