@@ -1,0 +1,22 @@
+[
+    {
+        "nama_brand": "Contoh Satu",
+        "link": "https://kodoklompat.com",
+        "judul_iklan": "Petualangan Seru Kodok",
+        "deskripsi": "Mainkan game seru penuh tantangan di kodoklompat.com!",
+        "gambar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+    },
+    {
+        "nama_brand": "Brand Dua",
+        "link": "https://github.com",
+        "judul_iklan": "Hosting Kode & Proyek",
+        "deskripsi": "Simpan repositori dan deploy aplikasi web Anda dengan mudah.",
+        "gambar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    },
+    {
+        "nama_brand": "sPanel ID",
+        "judul_iklan": "Solusi AI & IoT Pintar",
+        "deskripsi": "Teknologi masa depan yang memahami kebutuhan Anda.",
+        "gambar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwAEAwGBg0N/1AAAAABJRU5ErkJggg=="
+    }
+]
